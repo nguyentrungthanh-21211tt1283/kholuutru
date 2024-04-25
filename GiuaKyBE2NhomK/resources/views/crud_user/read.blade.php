@@ -39,6 +39,12 @@
                             <div class="col-md-3">{{ $user->masosv}}</div>
                             <div class="col-md-3"></div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3"><span>sở thích</span></div>
+                            <div class="col-md-3">{{ $user->sothich}}</div>
+                            <div class="col-md-3"></div>
+                        </div>
                         <div class="row btn_edit">
                             <div class="col-md-8"></div>
                             <div class="col-md-2">

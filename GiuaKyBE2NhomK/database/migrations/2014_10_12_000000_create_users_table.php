@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('phone', 10);
             $table->string('image', 150);
             $table->string('masosv', 100)->unique();
+            $table->string('sothich');
+            
         });
     }
 

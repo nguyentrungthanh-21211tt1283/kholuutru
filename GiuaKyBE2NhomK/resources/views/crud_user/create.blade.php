@@ -77,6 +77,17 @@
                                 <span class="text-danger">{{ $errors->first('masosv') }}</span>
                                 @endif
                             </div>
+                            <div class="form-group mb-3">
+                                <div class="row">
+                                    <div class="col-md-3"><span>Sở thích</span></div>
+                                    <div class="col-md-9"><input type="text" id="sothich" class="form-control" name="sothich"
+                                            required autofocus></div>
+                                </div>
+
+                                @if ($errors->has('sothich'))
+                                <span class="text-danger">{{ $errors->first('sothich') }}</span>
+                                @endif
+                            </div>
 
                             <div class="row btn_login">
                                 <div class="col-md-3"></div>
