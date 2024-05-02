@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CrudUserController;
+use App\Http\Controllers\FavoritiesController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,6 @@ Route::post('update', [CrudUserController::class, 'PostUpdateUser'])->name('user
 
 Route::get('delete', [CrudUserController::class, 'deleteUser'])->name('user.deleteUser');
 Route::get('signout', [CrudUserController::class, 'signOut'])->name('signout');
+
+Route::get('listfavoritie', [FavoritiesController::class, 'indexListFavoritie'])->name('favoritie.listfavoritie');
+Route::get('listpost', [PostController::class, 'indexListPost'])->name('post.listpost');
